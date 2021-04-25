@@ -2,10 +2,12 @@ import React, { Fragment } from 'react';
 
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
+// import Cart from './components/Cart/Cart';
 
-function app() {
+function App() {
   return (
     <Fragment>
+      {/* <Cart /> */}
       <Header />
       <main>
         <Meals />
@@ -14,4 +16,4 @@ function app() {
   );
 }
 
-export default app;
+export default App;

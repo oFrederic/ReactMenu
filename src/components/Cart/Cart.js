@@ -1,24 +1,25 @@
 import React from 'react';
 
+import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 
 const Cart = () => {
   const cartItems = [
-    { id: 'c1', name: 'sushi', amount: 3, price: 1299 },
-  ].map(item => <li>{item.name}</li>);
+    { id: 'c1', name: 'sushi', amount: 3, price: 2299 },
+  ].map(item => <li key={item.id}>{item.name}</li>);
 
   return (
-    <div>
+    <Modal>
       <ul className={classes['cart-items']}>{cartItems}</ul>
-      <div>
-        <span className={classes.total}>Total Amount</span>
-        <span>3897</span>
+      <div className={classes.total}>
+        <span>Total Amount</span>
+        <span>6887</span>
       </div>
-      <div className={classes.action}>
+      <div className={classes.actions}>
         <button className={classes['button--alt']}>Close</button>
-        <button>Order</button>
+        <button className={classes.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
