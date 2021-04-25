@@ -4,7 +4,6 @@ import CartIcon from '../Cart/CartIcon';
 import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = () => {
-  console.log(classes);
   return (
     <button className={classes.button}>
       <span className={classes.icon}>

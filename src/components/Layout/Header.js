@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
 import menuImage from '../../assets/menu.jpg';
-import classes from './Header.module.css';
 import HeaderCartButton from './HeaderCartButton';
+import classes from './Header.module.css';
 
 const Header = () => {
   return (
@@ -16,6 +16,6 @@ const Header = () => {
       </div>
     </Fragment>
   );
-}
+};
 
 export default Header;
