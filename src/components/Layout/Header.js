@@ -4,7 +4,7 @@ import menuImage from '../../assets/menu.jpg';
 import classes from './Header.module.css';
 import HeaderCartButton from './HeaderCartButton';
 
-function Header() {
+const Header = () => {
   return (
     <Fragment>
       <header className={classes.header}>
