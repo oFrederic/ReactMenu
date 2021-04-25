@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Header from './components/Layout/Header';
 
 function app() {
   return (
-    <div>
-      <h1>ReactMenu</h1>
-    </div>
+    <Fragment>
+      <Header />
+    </Fragment>
   );
 }
 
