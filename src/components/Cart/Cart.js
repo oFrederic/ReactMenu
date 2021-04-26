@@ -17,7 +17,7 @@ const Cart = ({ onToggleModal }) => {
       name={item.name}
       amount={item.amount}
       price={item.price}
-      onAddItem={() => addItemHandler(item.id)}
+      onAddItem={() => addItemHandler(item)}
       onRemoveItem={() => removeItemHandler(item.id)}
     />
   ));

@@ -5,10 +5,15 @@ import CartContext from './cart-context';
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD':
-      let items = [...state.items, action.item];
+      let items = [...state.items];
+      let index = items.findIndex(item => item.id === action.item.id);
+      index >= 0
+        ? (items[index].amount += action.item.amount)
+        : items.push(action.item);
+
       let totalAmount =
         state.totalAmount + action.item.price * action.item.amount;
-
+      console.log(items);
       return {
         items: items,
         totalAmount: totalAmount,
@@ -16,7 +21,7 @@ const cartReducer = (state, action) => {
 
     case 'REMOVE':
       items = [...state.items];
-      const index = items.indexOf(action.item.id);
+      index = items.findIndex(item => item.id === action.item.id);
       items[index].amount !== 1
         ? items[index].amount--
         : items.splice(index, 1);
