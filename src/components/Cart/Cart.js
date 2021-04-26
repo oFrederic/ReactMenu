@@ -8,8 +8,12 @@ import CartItem from './CartItem';
 const Cart = ({ onToggleModal }) => {
   const cartContext = useContext(CartContext);
 
-  const addItemHandler = item => {};
-  const removeItemHandler = id => {};
+  const addItemHandler = item => {
+    cartContext.addItem({ ...item, amount: 1 });
+  };
+  const removeItemHandler = id => {
+    cartContext.removeItem(id);
+  };
 
   const cartItems = cartContext.items.map(item => (
     <CartItem

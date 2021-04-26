@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './CartItem.module.css';
 
-const CartItem = ({ name, price, amount, onRemove, onAdd }) => {
+const CartItem = ({ name, price, amount, onRemoveItem, onAddItem }) => {
   return (
     <li className={classes['cart-item']}>
       <div>
@@ -13,8 +13,8 @@ const CartItem = ({ name, price, amount, onRemove, onAdd }) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={onRemove}>−</button>
-        <button onClick={onAdd}>+</button>
+        <button onClick={onRemoveItem}>−</button>
+        <button onClick={onAddItem}>+</button>
       </div>
     </li>
   );

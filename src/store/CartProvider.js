@@ -4,33 +4,35 @@ import CartContext from './cart-context';
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD':
-      let items = [...state.items];
-      let index = items.findIndex(item => item.id === action.item.id);
+    case 'ADD': {
+      const items = [...state.items];
+      const index = items.findIndex(item => item.id === action.item.id);
       index >= 0
         ? (items[index].amount += action.item.amount)
         : items.push(action.item);
-
-      let totalAmount =
+      const totalAmount =
         state.totalAmount + action.item.price * action.item.amount;
-      console.log(items);
+
       return {
         items: items,
         totalAmount: totalAmount,
       };
+    }
 
-    case 'REMOVE':
-      items = [...state.items];
-      index = items.findIndex(item => item.id === action.item.id);
+    case 'REMOVE': {
+      const items = [...state.items];
+      const index = items.findIndex(item => item.id === action.id);
+      const price = items[index].price;
       items[index].amount !== 1
         ? items[index].amount--
         : items.splice(index, 1);
-      totalAmount = state.totalAmount - action.item.price;
+      const totalAmount = state.totalAmount - price;
 
       return {
         items: items,
         totalAmount: totalAmount,
       };
+    }
 
     default:
       throw new Error();
