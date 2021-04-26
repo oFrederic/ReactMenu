@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
+import CartProvider from './store/CartProvider';
+import Cart from './components/Cart/Cart';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
-import Cart from './components/Cart/Cart';
 
 function App() {
   const [modalIsShowed, setModalIsShowed] = useState(false);
@@ -12,13 +13,13 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <CartProvider>
       {modalIsShowed && <Cart onToggleModal={toggleModal} />}
       <Header onToggleModal={toggleModal} />
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 
