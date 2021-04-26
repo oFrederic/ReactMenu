@@ -1,25 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import CartContext from '../../store/cart-context';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
+import CartItem from './CartItem';
 
 const Cart = ({ onToggleModal }) => {
-  const cartItems = [
-    { id: 'c1', name: 'sushi', amount: 3, price: 2299 },
-  ].map(item => <li key={item.id}>{item.name}</li>);
+  const cartContext = useContext(CartContext);
+
+  const addItemHandler = item => {};
+  const removeItemHandler = id => {};
+
+  const cartItems = cartContext.items.map(item => (
+    <CartItem
+      key={item.id}
+      name={item.name}
+      amount={item.amount}
+      price={item.price}
+      onAddItem={() => addItemHandler(item.id)}
+      onRemoveItem={() => removeItemHandler(item.id)}
+    />
+  ));
 
   return (
     <Modal onToggleModal={onToggleModal}>
       <ul className={classes['cart-items']}>{cartItems}</ul>
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>6887</span>
+        <span>{`¥${cartContext.totalAmount}`}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes['button--alt']} onClick={onToggleModal}>
           Close
         </button>
-        <button className={classes.button}>Order</button>
+        {cartItems.length > 0 && (
+          <button className={classes.button}>Order</button>
+        )}
       </div>
     </Modal>
   );
